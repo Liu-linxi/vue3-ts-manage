@@ -18,7 +18,7 @@ const router = createRouter({
     },
     {
       path: "/:pathMatch(.*)",
-      component: () => import("../views/not-found/404.vue"),
+      component: () => import("../views/error/404.vue"),
     },
   ],
 });
