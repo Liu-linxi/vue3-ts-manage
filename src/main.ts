@@ -5,7 +5,9 @@ import "./assets/css/index.less";
 // 不确定是什么类型,相当于当成any类型,定义让其认为是一个组件来使用
 import App from "./App.vue";
 import router from "./router";
+import pinia from "./store";
 
 const app = createApp(App);
 app.use(router);
+app.use(pinia);
 app.mount("#app");

@@ -10,5 +10,6 @@
     "paths": {
       "@/*": ["./src/*"]
     }
+    //是否使用默认隐式any "noImplicitAny": false
   }
 }
