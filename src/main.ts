@@ -9,8 +9,12 @@ import pinia from "./store";
 
 // 全局注册:方便简洁,但是全局引入是一起打包,打包会更大
 // import ElementPlus from "element-plus";
-// import "element-plus/dist/index.css";
+import "element-plus/dist/index.css";
 // app.use(ElementPlus);
+
+// 按需引入
+// import { ElButton } from "element-plus";
+// app.component(ElButton.name, ElButton);
 
 const app = createApp(App);
 app.use(router);
