@@ -9,7 +9,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["element-plus/global"] //开发工具提示
+
     //是否使用默认隐式any "noImplicitAny": false
   }
 }
