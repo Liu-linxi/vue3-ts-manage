@@ -16,8 +16,15 @@ import "element-plus/dist/index.css";
 // import { ElButton } from "element-plus";
 // app.component(ElButton.name, ElButton);
 
+// 引入图标
+import * as ElementPlusIconsVue from "@element-plus/icons-vue";
+
 const app = createApp(App);
+
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component);
+}
+
 app.use(router);
 app.use(pinia);
-
 app.mount("#app");
