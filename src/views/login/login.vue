@@ -1,15 +1,10 @@
 <script setup lang="ts">
-import lxRequest from '@/serive'
-lxRequest.get({
-  url: "/home/multidata",
-}).then(res => {
-  // console.log(res)
-})
+
 </script>
 
 <template>
   <div class="login">
-    login
+    登录
   </div>
 </template>
 
