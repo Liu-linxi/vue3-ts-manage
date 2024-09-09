@@ -1,5 +1,10 @@
 <script setup lang="ts">
-
+import lxRequest from '@/serive'
+lxRequest.get({
+  url: "/home/multidata" as string,
+}).then(res => {
+  console.log(res)
+})
 </script>
 
 <template>
@@ -9,7 +14,5 @@
 </template>
 
 <style lang="less" scoped>
-  .login{
-
-  }
+.login {}
 </style>
