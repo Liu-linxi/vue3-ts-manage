@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import lxRequest from '@/serive'
 lxRequest.get({
-  url: "/home/multidata" as string,
+  url: "/home/multidata",
 }).then(res => {
-  console.log(res)
+  // console.log(res)
 })
 </script>
 
