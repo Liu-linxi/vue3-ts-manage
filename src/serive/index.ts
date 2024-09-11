@@ -2,7 +2,7 @@ import LXRequest from "./request";
 import { BASE_URL1, TIME_OUT1 } from "./config";
 import { localCache } from "@/utils/cache";
 
-const hyRequest = new LXRequest({
+const lxRequest = new LXRequest({
   baseURL: BASE_URL1,
   timeout: TIME_OUT1,
   interceptors: {
@@ -25,4 +25,4 @@ const hyRequest = new LXRequest({
   },
 });
 
-export default hyRequest;
+export default lxRequest;

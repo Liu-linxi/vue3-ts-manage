@@ -16,10 +16,12 @@
 import { reactive, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import type { FormRules, FormInstance } from 'element-plus'
+import useLoginStore from '@/store/login/login'
 import { localCache } from '@/utils/cache'
+import type { IAcount } from '@/types'
 
 // 定义内部的数据
-const account = reactive({
+const account = reactive<IAcount>({
   name: localCache.getCache('name') ?? '',
   password: localCache.getCache('password') ?? ''
 })
@@ -38,12 +40,24 @@ const accountRules: FormRules = {
 
 // 定义登录逻辑
 const formRef = ref<FormInstance>()
+const loginStore = useLoginStore()
 function loginAction(isKeep: boolean) {
   // 是否通过了验证
   formRef.value?.validate((isValid) => {
     if (isValid) {
-      // 开始登陆
-      ElMessage.warning({ message: '开始登陆~' })
+      const name = account.name
+      const password = account.password
+      // 1.登录操作
+      loginStore.accountLoginAction(account)
+
+      // 2.记住密码
+      if (isKeep) {
+        localCache.setCache('name', name)
+        localCache.setCache('password', password)
+      } else {
+        localCache.deleteCache('name')
+        localCache.deleteCache('password')
+      }
     } else {
       ElMessage.warning({ message: '账号或者密码输入的规则错误~' })
     }
