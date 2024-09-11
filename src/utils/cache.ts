@@ -3,7 +3,7 @@ enum CacheType {
   session = "session",
 }
 
-class HYCache {
+class LXCache {
   storage: Storage;
 
   constructor(type: CacheType) {
@@ -30,7 +30,7 @@ class HYCache {
   }
 }
 
-const localCache = new HYCache(CacheType.local);
-const sessionCache = new HYCache(CacheType.session);
+const localCache = new LXCache(CacheType.local);
+const sessionCache = new LXCache(CacheType.session);
 
 export { localCache, sessionCache };
