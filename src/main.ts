@@ -17,14 +17,16 @@ import "element-plus/dist/index.css";
 // app.component(ElButton.name, ElButton);
 
 // 引入图标
-import * as ElementPlusIconsVue from "@element-plus/icons-vue";
+// import * as ElementPlusIconsVue from "@element-plus/icons-vue";
+// for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+//   app.component(key, component);
+// }
+// 组件优化图标引入
+import registerIcons from "@/global/register-icons";
 
 const app = createApp(App);
 
-for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-  app.component(key, component);
-}
-
+app.use(registerIcons);
 app.use(router);
 app.use(pinia);
 app.mount("#app");
