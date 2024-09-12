@@ -20,10 +20,13 @@ import useLoginStore from '@/store/login/login'
 import { localCache } from '@/utils/cache'
 import type { IAcount } from '@/types'
 
+const CACHE_NAME = "name";
+const CACHE_PASSWORD = "password"
+
 // 定义内部的数据
 const account = reactive<IAcount>({
-  name: localCache.getCache('name') ?? '',
-  password: localCache.getCache('password') ?? ''
+  name: localCache.getCache(CACHE_NAME) ?? '',
+  password: localCache.getCache(CACHE_PASSWORD) ?? ''
 })
 
 // 定义form的验证规则
@@ -52,11 +55,11 @@ function loginAction(isKeep: boolean) {
 
       // 2.记住密码
       if (isKeep) {
-        localCache.setCache('name', name)
-        localCache.setCache('password', password)
+        localCache.setCache(CACHE_NAME, name)
+        localCache.setCache(CACHE_PASSWORD, password)
       } else {
-        localCache.deleteCache('name')
-        localCache.deleteCache('password')
+        localCache.deleteCache(CACHE_NAME)
+        localCache.deleteCache(CACHE_PASSWORD)
       }
     } else {
       ElMessage.warning({ message: '账号或者密码输入的规则错误~' })
