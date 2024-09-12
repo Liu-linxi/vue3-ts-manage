@@ -1,5 +1,8 @@
 # vue3-ts-manage
 vue3+ts 编写的后台管理系统
+
+1. 项目图标动态抽取单文件,常量字段抽取文件,单目录global存放
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
