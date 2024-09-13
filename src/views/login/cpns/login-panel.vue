@@ -29,6 +29,12 @@
       <el-checkbox v-model="isKeep" label="记住密码" />
       <el-link type="primary">记住密码</el-link>
     </div>
+    <div class="control-account">
+      <el-radio-group v-model="role">
+        <el-radio value="1" size="large">超级管理员</el-radio>
+        <el-radio value="2" size="large">管理员</el-radio>
+      </el-radio-group>
+    </div>
     <el-button type="primary" class="login-btn" @click="loginAciton">立即登录</el-button>
   </div>
 </template>
@@ -42,6 +48,7 @@ import { ElMessage } from 'element-plus';
 
 const currentTab = ref('account')
 const isKeep = ref<boolean>(localCache.getCache('rem_pwd'));
+const role = ref("1")
 
 watch(isKeep, (newValue) => {
   localCache.setCache('rem_pwd', newValue)

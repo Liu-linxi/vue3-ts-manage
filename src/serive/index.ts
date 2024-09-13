@@ -8,6 +8,7 @@ const lxRequest = new LXRequest({
   timeout: TIME_OUT1,
   interceptors: {
     requestInterceptor: (config) => {
+      // 每个请求都携带token
       const token = localCache.getCache(LOGIN_TOKEN);
       if (token && config.headers) {
         config.headers.Authorization = `Bearer ${token}`;
