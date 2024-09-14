@@ -1,6 +1,8 @@
 <script setup>
 import useLoginStore from "@/store/login/login";
 import { useRoute, useRouter } from "vue-router";
+import { mapPathToMenu } from '@/utils/map-menu'
+import { ref } from "vue";
 // 0.定义数据
 defineProps({
   isFold: {
@@ -12,9 +14,13 @@ defineProps({
 // 1.获取菜单数据
 const loginStore = useLoginStore();
 const userMenus = loginStore.userMenus;
-const menuActive = loginStore.menuActive;
+// const menuActive = loginStore.menuActive;
 // 解构用法
 // const { userMenus, menuActive } = useLoginStore();
+
+const route = useRoute()
+const currentMenu = mapPathToMenu(userMenus, route.path)
+const defaultValue = ref(currentMenu.id + '')
 
 
 const router = useRouter()
@@ -30,7 +36,7 @@ function handleItemClick(item) {
       <span class="title" v-show="!isFold">管理系统</span>
     </div>
     <div class="menu">
-      <el-menu :default-active="menuActive" :collapse="isFold" class="el-menu-vertical-demo" text-color="#b7bdc3"
+      <el-menu :default-active="defaultValue" :collapse="isFold" class="el-menu-vertical-demo" text-color="#b7bdc3"
         active-text-color="#fff" background-color="#001529">
         <template v-for="li in userMenus" :key="li.id">
           <el-sub-menu :index="li.id + ''">

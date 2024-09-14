@@ -1,4 +1,4 @@
-import router from "@/router";
+import router, { addRoutesWithMenu } from "@/router";
 import { defineStore } from "pinia";
 import type { IAcount } from "@/types";
 import { localCache } from "@/utils/cache";
@@ -31,13 +31,9 @@ const useLoginStore = defineStore("login", {
       // 模拟角色登录后显示菜单数据
       this.userMenus = role == 1 ? menus : menus.splice(2, menus.length);
       localCache.setCache("userMenus", this.userMenus);
-      //顺便存储当前选中哪个
-      this.menuActive = this.userMenus[0].children[0].id + "";
-      localCache.setCache("menuActive", this.menuActive);
 
       const routes = mapMenuToRoutes(this.userMenus);
       routes.forEach((route) => router.addRoute("main", route));
-      console.log("🚀 ~ accountLoginAction ~ routes:", routes);
 
       // 跳转到首页
       router.push("/main");
@@ -45,7 +41,10 @@ const useLoginStore = defineStore("login", {
     loadLocalDataAction() {
       this.token = localCache.getCache(LOGIN_TOKEN);
       this.userMenus = localCache.getCache("userMenus");
-      this.menuActive = localCache.getCache("menuActive");
+
+      if (this.token && this.userMenus) {
+        addRoutesWithMenu(this.userMenus); // 获取所有的数据
+      }
     },
   },
 });
