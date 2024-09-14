@@ -57,6 +57,7 @@ watch(isKeep, (newValue) => {
 const accountRef = ref<InstanceType<typeof PanelAccount>>()
 
 function loginAciton() {
+  localCache.setCache('role', role.value)
   if (currentTab.value === 'phone') return ElMessage.warning("暂未开放此登录方式~ ")
   accountRef.value?.loginAction(isKeep.value)
 }
