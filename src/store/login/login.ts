@@ -32,7 +32,8 @@ const useLoginStore = defineStore("login", {
       localCache.setCache("userMenus", this.userMenus);
 
       this.menuActive = this.userMenus[0].children[0].id + "";
-      localCache.setCache("menuActive", this.userMenus);
+      console.log(this.userMenus[0].children[0].id);
+      localCache.setCache("menuActive", this.menuActive);
 
       // 跳转到首页
       router.push("/main");
