@@ -30,9 +30,8 @@ const useLoginStore = defineStore("login", {
       // 模拟角色登录后显示菜单数据
       this.userMenus = role == 1 ? menus : menus.splice(2, menus.length);
       localCache.setCache("userMenus", this.userMenus);
-
+      //顺便存储当前选中哪个
       this.menuActive = this.userMenus[0].children[0].id + "";
-      console.log(this.userMenus[0].children[0].id);
       localCache.setCache("menuActive", this.menuActive);
 
       // 跳转到首页
