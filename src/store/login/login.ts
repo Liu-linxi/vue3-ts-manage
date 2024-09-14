@@ -38,7 +38,7 @@ const useLoginStore = defineStore("login", {
       router.push("/main");
     },
     loadLocalDataAction() {
-      this.token = localCache.getCache("token");
+      this.token = localCache.getCache(LOGIN_TOKEN);
       this.userMenus = localCache.getCache("userMenus");
       this.menuActive = localCache.getCache("menuActive");
     },

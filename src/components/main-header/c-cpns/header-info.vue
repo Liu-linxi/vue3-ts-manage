@@ -2,38 +2,47 @@
   <div class="header-info">
     <div class="operation">
       <span>
-        <el-icon><bell /></el-icon>
+        <el-icon>
+          <bell />
+        </el-icon>
       </span>
       <span>
-        <el-icon><ChatDotRound /></el-icon>
+        <el-icon>
+          <ChatDotRound />
+        </el-icon>
       </span>
       <span>
         <span class="dot"></span>
-        <el-icon><Postcard /></el-icon>
+        <el-icon>
+          <Postcard />
+        </el-icon>
       </span>
     </div>
     <div class="info">
       <el-dropdown>
         <span class="user-info">
-          <el-avatar
-            :size="30"
-            class="avatar"
-            src="https://upload.jianshu.io/users/upload_avatars/1102036/c3628b478f06.jpeg"
-          />
+          <el-avatar :size="30" class="avatar"
+            src="https://upload.jianshu.io/users/upload_avatars/1102036/c3628b478f06.jpeg" />
           <span class="name">coderwhy</span>
         </span>
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item @click="handleExitClick">
-              <el-icon><CircleCloseFilled /></el-icon>
+              <el-icon>
+                <CircleCloseFilled />
+              </el-icon>
               退出系统
             </el-dropdown-item>
             <el-dropdown-item divided>
-              <el-icon><InfoFilled /></el-icon>
+              <el-icon>
+                <InfoFilled />
+              </el-icon>
               个人信息
             </el-dropdown-item>
             <el-dropdown-item>
-              <el-icon><Unlock /></el-icon>
+              <el-icon>
+                <Unlock />
+              </el-icon>
               修改密码
             </el-dropdown-item>
           </el-dropdown-menu>
@@ -46,12 +55,13 @@
 <script setup lang="ts" name="header-info">
 import { useRouter } from 'vue-router'
 import { localCache } from '@/utils/cache'
+import { LOGIN_TOKEN } from '@/global/constants';
 
 const router = useRouter()
 function handleExitClick() {
-  localCache.deleteCache('token')
-  localCache.deleteCache('userInfo')
-  localCache.deleteCache('userMenus')
+  localCache.deleteCache(LOGIN_TOKEN)
+  localCache.deleteCache("userMenus")
+  localCache.deleteCache('menuActive')
   router.push('/login')
 }
 </script>
@@ -65,6 +75,7 @@ function handleExitClick() {
 .operation {
   display: inline-flex;
   margin-right: 20px;
+
   span {
     position: relative;
     display: flex;
