@@ -22,8 +22,8 @@
       <el-dropdown>
         <span class="user-info">
           <el-avatar :size="30" class="avatar"
-            src="https://upload.jianshu.io/users/upload_avatars/1102036/c3628b478f06.jpeg" />
-          <span class="name">coderwhy</span>
+            src="https://p6-passport.byteacctimg.com/img/user-avatar/25b34042bc6fee16a1c61640a3980913~90x90.awebp" />
+          <span class="name">林夕</span>
         </span>
         <template #dropdown>
           <el-dropdown-menu>
