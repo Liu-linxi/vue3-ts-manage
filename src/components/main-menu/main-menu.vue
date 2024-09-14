@@ -1,5 +1,13 @@
 <script setup>
 import useLoginStore from "@/store/login/login";
+// 0.定义数据
+defineProps({
+  isFold: {
+    type: Boolean,
+    default: false
+  }
+})
+
 // 1.获取菜单数据
 const loginStore = useLoginStore();
 const userMenus = loginStore.userMenus;
@@ -12,10 +20,11 @@ const menuActive = loginStore.menuActive;
   <div class="main-menu">
     <div class="logo">
       <img class="img" src="@/assets/img/logo.svg" alt="logo" />
-      <span class="title">管理系统</span>
+      <span class="title" v-show="!isFold">管理系统</span>
     </div>
     <div class="menu">
-      <el-menu :default-active="menuActive" class="el-menu-vertical-demo" text-color="#b7bdc3" active-text-color="#fff" background-color="#001529">
+      <el-menu :default-active="menuActive" :collapse="isFold" class="el-menu-vertical-demo" text-color="#b7bdc3"
+        active-text-color="#fff" background-color="#001529">
         <template v-for="li in userMenus" :key="li.id">
           <el-sub-menu :index="li.id + ''">
             <template #title>

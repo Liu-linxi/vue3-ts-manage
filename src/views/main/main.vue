@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import MainMenu from '@/components/main-menu/main-menu.vue'
-import MainHeader from '@/components/main-header/main-header.vue'
-import { ref } from 'vue';
+import MainMenu from "@/components/main-menu/main-menu.vue";
+import MainHeader from "@/components/main-header/main-header.vue";
+import { ref } from "vue";
 // 退出登录
-import router from '@/router';
-import { localCache } from '@/utils/cache';
+import router from "@/router";
+import { localCache } from "@/utils/cache";
 import { LOGIN_TOKEN } from "@/global/constants";
 function handleExit() {
   localCache.deleteCache(LOGIN_TOKEN);
@@ -12,23 +12,21 @@ function handleExit() {
 }
 // 退出登录末
 
-const isFold = ref(false)
+const isFold = ref(false);
 function handleFoldChange(isFoldValue: boolean) {
-  isFold.value = isFoldValue
+  isFold.value = isFoldValue;
 }
-
-
 </script>
 
 <template>
   <div class="main">
     <el-container class="main-content">
       <el-aside :width="isFold ? '60px' : '210px'">
-        <main-menu />
+        <main-menu :is-fold="isFold" />
       </el-aside>
       <el-container>
         <el-header>
-          <main-header />
+          <main-header @fold-change="handleFoldChange" />
         </el-header>
         <el-main>
           <el-button type="primary" @click="handleExit">退 出 登 录</el-button>
