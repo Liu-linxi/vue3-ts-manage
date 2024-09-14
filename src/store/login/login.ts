@@ -4,6 +4,7 @@ import type { IAcount } from "@/types";
 import { localCache } from "@/utils/cache";
 import { LOGIN_TOKEN } from "@/global/constants";
 import { menus } from "@/mock/menu";
+import { mapMenuToRoutes } from "@/utils/map-menu";
 
 interface ILoginState {
   token: string;
@@ -33,6 +34,10 @@ const useLoginStore = defineStore("login", {
       //顺便存储当前选中哪个
       this.menuActive = this.userMenus[0].children[0].id + "";
       localCache.setCache("menuActive", this.menuActive);
+
+      const routes = mapMenuToRoutes(this.userMenus);
+      routes.forEach((route) => router.addRoute("main", route));
+      console.log("🚀 ~ accountLoginAction ~ routes:", routes);
 
       // 跳转到首页
       router.push("/main");

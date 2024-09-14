@@ -1,5 +1,6 @@
 <script setup>
 import useLoginStore from "@/store/login/login";
+import { useRoute, useRouter } from "vue-router";
 // 0.定义数据
 defineProps({
   isFold: {
@@ -14,6 +15,12 @@ const userMenus = loginStore.userMenus;
 const menuActive = loginStore.menuActive;
 // 解构用法
 // const { userMenus, menuActive } = useLoginStore();
+
+
+const router = useRouter()
+function handleItemClick(item) {
+  router.push(item.url)
+}
 </script>
 
 <template>
@@ -34,7 +41,7 @@ const menuActive = loginStore.menuActive;
               <span>{{ li.name }}</span>
             </template>
             <template v-for="item in li.children" :key="item.id">
-              <el-menu-item :index="item.id + ''">{{ item.name }}</el-menu-item>
+              <el-menu-item :index="item.id + ''" @click="handleItemClick(item)">{{ item.name }}</el-menu-item>
             </template>
           </el-sub-menu>
         </template>

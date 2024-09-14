@@ -30,7 +30,7 @@ function handleFoldChange(isFoldValue: boolean) {
         </el-header>
         <el-main>
           <el-button type="primary" @click="handleExit">退 出 登 录</el-button>
-
+          <router-view />
         </el-main>
       </el-container>
     </el-container>
