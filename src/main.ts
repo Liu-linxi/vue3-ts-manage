@@ -27,6 +27,7 @@ import registerIcons from "@/global/register-icons";
 const app = createApp(App);
 
 app.use(registerIcons);
-app.use(router);
+// 这里顺序先加载存储后加载路由避免刷新后显示404
 app.use(pinia);
+app.use(router);
 app.mount("#app");
