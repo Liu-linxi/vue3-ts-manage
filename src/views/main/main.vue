@@ -3,7 +3,7 @@ import MainMenu from "@/components/main-menu/main-menu.vue";
 import MainHeader from "@/components/main-header/main-header.vue";
 import { ref } from "vue";
 // 退出登录
-import router from "@/router";
+/* import router from "@/router";
 import { localCache } from "@/utils/cache";
 import { LOGIN_TOKEN } from "@/global/constants";
 function handleExit() {
@@ -12,7 +12,7 @@ function handleExit() {
   localCache.deleteCache('menuActive')
   localCache.deleteCache('role')
   router.push("/login");
-}
+} */
 // 退出登录末
 
 const isFold = ref(false);
@@ -32,7 +32,6 @@ function handleFoldChange(isFoldValue: boolean) {
           <main-header @fold-change="handleFoldChange" />
         </el-header>
         <el-main>
-          <el-button type="primary" @click="handleExit">退 出 登 录</el-button>
           <router-view />
         </el-main>
       </el-container>

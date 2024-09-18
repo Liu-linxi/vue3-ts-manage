@@ -2,6 +2,7 @@
 vue3+ts 编写的后台管理系统
 
 1. 项目图标动态抽取单文件,常量字段抽取文件,单目录global存放
+1. 使用mock.js模拟数据
 
 ## Recommended IDE Setup
 

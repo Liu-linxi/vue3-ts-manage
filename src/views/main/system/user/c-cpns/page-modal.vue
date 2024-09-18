@@ -42,9 +42,9 @@
 </template>
 
 <script setup lang="ts" name="modal">
-import useMainStore from '@/store/main/main'
+// import useMainStore from '@/store/main/main'
 import useSystemStore from '@/store/main/system/system'
-import { storeToRefs } from 'pinia'
+// import { storeToRefs } from 'pinia'
 import { reactive, ref } from 'vue'
 
 const dialogVisible = ref(false)
@@ -52,8 +52,25 @@ const isEdit = ref(false)
 const editData = ref()
 
 // 部门和角色的数据
-const mainStore = useMainStore()
-const { entireDepartments, entireRoles } = storeToRefs(mainStore)
+const entireDepartments = ref([{
+  id: 1,
+  name: '人事部',
+}, {
+  id: 2,
+  name: '财务部',
+}, {
+  id: 3,
+  name: '研发部',
+}])
+const entireRoles = ref([{
+  id: 1,
+  name: '超级管理员',
+}, {
+  id: 2,
+  name: '管理员',
+}])
+// const mainStore = useMainStore()
+// const { entireDepartments, entireRoles } = storeToRefs(mainStore)
 
 // 定义数据绑定
 const formData = reactive<any>({
