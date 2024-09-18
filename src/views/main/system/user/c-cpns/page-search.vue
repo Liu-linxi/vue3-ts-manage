@@ -28,24 +28,22 @@
         </el-col>
         <el-col :span="8">
           <el-form-item label="创建时间" prop="createAt">
-            <el-date-picker
-              type="daterange"
-              range-separator="-"
-              start-placeholder="开始时间"
-              end-placeholder="结束时间"
-              v-model="userSearchForm.createAt"
-            />
+            <el-date-picker type="daterange" range-separator="-" start-placeholder="开始时间" end-placeholder="结束时间"
+              v-model="userSearchForm.createAt" />
           </el-form-item>
+        </el-col>
+        <el-col :span="8">
+          <div class="btns" style="padding-top: 20px;">
+            <el-button size="large" icon="Refresh" @click="handleResetClick">重置</el-button>
+            <el-button size="large" icon="Search" type="primary" @click="handleQueryClick">
+              查询
+            </el-button>
+          </div>
         </el-col>
       </el-row>
     </el-form>
     <!-- 1.2.搜索按钮  -->
-    <div class="btns">
-      <el-button size="large" icon="Refresh" @click="handleResetClick">重置</el-button>
-      <el-button size="large" icon="Search" type="primary" @click="handleQueryClick">
-        查询
-      </el-button>
-    </div>
+
   </div>
 </template>
 
