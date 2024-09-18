@@ -42,9 +42,14 @@ export function mapMenuToRoutes(menus: any[]) {
     for (const menu of menus) {
       if (menu.type === 2) {
         const route = localRoutes.find((item) => item.path === menu.url);
-        console.log(route);
         if (route) finalRoutes.push(route);
-        if (!firstRoute && route) firstRoute = route;
+        if (!firstRoute && route) {
+          firstRoute = route;
+        } else {
+          // 调整切换角色是否存在当前目录
+          const index = finalRoutes.findIndex((item) => item.path === firstRoute?.path);
+          if (index === -1) firstRoute = route;
+        }
       } else {
         if (menu.type === 1 && menu.children.length) {
           finalRoutes.push({ path: menu.url, redirect: menu.children[0].url });

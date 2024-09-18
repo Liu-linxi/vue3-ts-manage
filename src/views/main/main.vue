@@ -7,7 +7,10 @@ import router from "@/router";
 import { localCache } from "@/utils/cache";
 import { LOGIN_TOKEN } from "@/global/constants";
 function handleExit() {
-  localCache.deleteCache(LOGIN_TOKEN);
+  localCache.deleteCache(LOGIN_TOKEN)
+  localCache.deleteCache("userMenus")
+  localCache.deleteCache('menuActive')
+  localCache.deleteCache('role')
   router.push("/login");
 }
 // 退出登录末

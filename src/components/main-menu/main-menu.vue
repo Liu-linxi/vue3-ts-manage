@@ -20,7 +20,7 @@ const userMenus = loginStore.userMenus;
 
 const route = useRoute()
 const currentMenu = mapPathToMenu(userMenus, route.path)
-const defaultValue = ref(currentMenu.id + '')
+const defaultValue = ref(currentMenu?.id + '')
 
 
 const router = useRouter()
