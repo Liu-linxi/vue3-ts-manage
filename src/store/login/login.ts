@@ -11,6 +11,7 @@ interface ILoginState {
   userInfo: any;
   userMenus: any[];
   permissions: string[];
+  power: string[];
 }
 
 const useLoginStore = defineStore("login", {
@@ -19,12 +20,8 @@ const useLoginStore = defineStore("login", {
     menuActive: "", //已经废弃使用
     userInfo: {},
     userMenus: [],
-    permissions: [
-      "department:create",
-      "department:delete",
-      "department:update",
-      "department:query",
-    ], //权限暂时模拟所有
+    permissions: [], //权限暂时模拟所有
+    power: ["create", "delete", "update", "query"],
   }),
   actions: {
     async accountLoginAction(account: IAcount) {
@@ -34,6 +31,16 @@ const useLoginStore = defineStore("login", {
       const role = localCache.getCache("role");
       // 模拟角色登录后显示菜单数据
       this.userMenus = role == 2 ? menus.slice(2) : menus;
+      if (role !== 2) {
+        const roleArr: string[] = ["department", "role"];
+        for (let index = 0; index < roleArr.length; index++) {
+          this.permissions = [
+            ...this.permissions,
+            ...this.power.map((item) => roleArr[index] + ":" + item),
+          ];
+        }
+        console.log(this.permissions);
+      }
       localCache.setCache("userMenus", this.userMenus);
       addRoutesWithMenu(this.userMenus);
       // 跳转到首页
