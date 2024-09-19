@@ -7,8 +7,8 @@ import mockRole from "./role";
 // 生成 22 条数据
 const MockDataArr = Mock.mock({
   "getUserListData|22": [mockUserTem(Random)],
-  "mockDept|22": [mockDept(Random)],
-  "roleResult|23": [mockRole(Random)],
+  "department|22": [mockDept(Random)],
+  "role|23": [mockRole(Random)],
 });
 // console.log(MockDataArr.userList);
 // 输出结果
