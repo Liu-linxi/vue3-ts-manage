@@ -8,7 +8,7 @@ import mockRole from "./role";
 const MockDataArr = Mock.mock({
   "getUserListData|22": [mockUserTem(Random)],
   "mockDept|22": [mockDept(Random)],
-  "mockRole|23": [mockRole(Random)],
+  "roleResult|23": [mockRole(Random)],
 });
 // console.log(MockDataArr.userList);
 // 输出结果
