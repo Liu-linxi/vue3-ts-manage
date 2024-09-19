@@ -19,7 +19,12 @@ const useLoginStore = defineStore("login", {
     menuActive: "", //已经废弃使用
     userInfo: {},
     userMenus: [],
-    permissions: [],
+    permissions: [
+      "department:create",
+      "department:delete",
+      "department:update",
+      "department:query",
+    ], //权限暂时模拟所有
   }),
   actions: {
     async accountLoginAction(account: IAcount) {

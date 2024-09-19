@@ -45,6 +45,42 @@ const useSystemStore = defineStore("system", {
       };
       this.getUserListDataAction({ offset: 0, size: 10 });
     },
+
+    // 部分的模拟数据对接
+    async getPageListDataAction(pageName: string, queryInfo: any) {
+      // 搜索参数可以自行扩展
+      const startIndex = parseInt(queryInfo.offset);
+      const endIndex = startIndex + parseInt(queryInfo.size);
+      // 1.请求用户列表数据
+      const mockDeptResult = MockDataArr.mockDept;
+      this.pageList = mockDeptResult.slice(startIndex, endIndex);
+      this.pageTotalCount = mockDeptResult.length;
+    },
+    async deletePageDataAction(pageName: string, id: number) {
+      const index = MockDataArr.mockDept.findIndex((item: any) => item.id === id);
+      MockDataArr.mockDept.splice(index, 1);
+      this.getPageListDataAction(pageName, { offset: 0, size: 10 });
+    },
+    async newPageDataAction(pageName: string, pageData: any) {
+      // 1.创建用户数据
+      const tiemr = Date.now();
+      MockDataArr.mockDept.unshift({
+        ...pageData,
+        updateAt: tiemr,
+        createAt: tiemr,
+        id: ++MockDataArr.mockDept[MockDataArr.mockDept.length - 1].id,
+      });
+      this.getPageListDataAction(pageName, { offset: 0, size: 10 });
+    },
+    async editPageDataAction(pageName: string, id: number, pageData: any) {
+      const index = MockDataArr.mockDept.findIndex((item: IUser) => item.id === id);
+      MockDataArr.mockDept[index] = {
+        ...MockDataArr.mockDept[index],
+        ...pageData,
+        updateAt: Date.now(),
+      };
+      this.getPageListDataAction(pageName, { offset: 0, size: 10 });
+    },
   },
 });
 

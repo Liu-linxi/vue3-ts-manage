@@ -18,7 +18,7 @@ export default function mockUserTem(Random: Mock.MockjsRandom) {
     updateAt: () => Random.date("T"), // 随机日期
     password: () => Random.string("lower", 8) + "." + Random.string("lower", 2), // 随机密码
     roleId: () => Random.integer(1, 2), // 随机 1 或 2,
-    departmentId: () => Random.integer(1, 2), // 随机 1 或 2,
+    departmentId: () => Random.integer(1, 3), // 随机 1 或 2,
   };
 
   return userTemplate;

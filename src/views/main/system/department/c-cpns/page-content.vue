@@ -13,32 +13,20 @@
         <el-table-column align="center" prop="parentId" label="上级部门" width="180" />
         <el-table-column align="center" prop="createAt" label="创建时间">
           <template #default="scope">
-            {{ utcFormat(scope.row.createAt) }}
+            {{ timeFormat(scope.row.createAt) }}
           </template>
         </el-table-column>
         <el-table-column align="center" prop="updateAt" label="更新时间">
           <template #default="scope">
-            {{ utcFormat(scope.row.updateAt) }}
+            {{ timeFormat(scope.row.updateAt) }}
           </template>
         </el-table-column>
         <el-table-column align="center" label="操作" width="180">
           <template #default="scope">
-            <el-button
-              type="primary"
-              size="small"
-              icon="EditPen"
-              link
-              @click="handleEditClick(scope.row)"
-            >
+            <el-button type="primary" size="small" icon="EditPen" link @click="handleEditClick(scope.row)">
               编辑
             </el-button>
-            <el-button
-              type="danger"
-              size="small"
-              icon="Delete"
-              link
-              @click="handleDeleteClick(scope.row.id)"
-            >
+            <el-button type="danger" size="small" icon="Delete" link @click="handleDeleteClick(scope.row.id)">
               删除
             </el-button>
           </template>
@@ -46,14 +34,9 @@
       </el-table>
     </div>
     <div class="footer">
-      <el-pagination
-        v-model:currentPage="currentPage"
-        v-model:page-size="pageSize"
-        :page-sizes="[10, 20, 30]"
-        layout="total, sizes, prev, pager, next, jumper"
-        :total="pageTotalCount"
-        @current-change="handleCurrentChange"
-      />
+      <el-pagination v-model:currentPage="currentPage" v-model:page-size="pageSize" :page-sizes="[10, 20, 30]"
+        layout="total, sizes, prev, pager, next, jumper" :total="pageTotalCount"
+        @current-change="handleCurrentChange" />
     </div>
   </div>
 </template>
@@ -61,7 +44,7 @@
 <script setup lang="ts" name="content">
 import { storeToRefs } from 'pinia'
 import useSystemStore from '@/store/main/system/system'
-import { utcFormat } from '@/utils/format'
+import { timeFormat } from '@/utils/format'
 import { ref } from 'vue'
 
 const emit = defineEmits(['newDataClick', 'editDataClick'])
@@ -76,7 +59,7 @@ function fetchPageListData(queryInfo: any = {}) {
   const offset = (currentPage.value - 1) * size
 
   // 2.发生网络请求
-  systemStore.getPageListDataAction('department', { offset, size, ...queryInfo })
+  systemStore.getPageListDataAction({ offset, size, ...queryInfo })
 }
 fetchPageListData()
 
