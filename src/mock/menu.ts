@@ -1,4 +1,4 @@
-export const menus = [
+export default [
   {
     id: 1,
     type: 1,

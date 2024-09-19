@@ -1,6 +1,7 @@
 import MockDataArr from "@/mock";
 import { defineStore } from "pinia";
 
+import menus from "@/mock/menu";
 interface IMainState {
   entireDepartments: any[];
   entireRoles: any[];
@@ -17,11 +18,10 @@ const useMainStore = defineStore("main", {
     async fetchEntireDataAction() {
       // const departmentResult = await getDepartmentData({ offset: 0, size: 100 });
       const roleResult = MockDataArr.role;
-      // const menuResult = await getMenuData();
 
       // this.entireDepartments = departmentResult.data.list;
       this.entireRoles = roleResult;
-      // this.entireMenus = menuResult.data.list;
+      this.entireMenus = menus;
     },
   },
 });

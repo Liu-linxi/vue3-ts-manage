@@ -52,30 +52,30 @@ const useSystemStore = defineStore("system", {
       const startIndex = parseInt(queryInfo.offset);
       const endIndex = startIndex + parseInt(queryInfo.size);
       // 1.请求用户列表数据
-      const mockDeptResult = MockDataArr.mockDept;
+      const mockDeptResult = MockDataArr[pageName];
       this.pageList = mockDeptResult.slice(startIndex, endIndex);
       this.pageTotalCount = mockDeptResult.length;
     },
     async deletePageDataAction(pageName: string, id: number) {
-      const index = MockDataArr.mockDept.findIndex((item: any) => item.id === id);
-      MockDataArr.mockDept.splice(index, 1);
+      const index = MockDataArr[pageName].findIndex((item: any) => item.id === id);
+      MockDataArr[pageName].splice(index, 1);
       this.getPageListDataAction(pageName, { offset: 0, size: 10 });
     },
     async newPageDataAction(pageName: string, pageData: any) {
       // 1.创建用户数据
       const tiemr = Date.now();
-      MockDataArr.mockDept.unshift({
+      MockDataArr[pageName].unshift({
         ...pageData,
         updateAt: tiemr,
         createAt: tiemr,
-        id: ++MockDataArr.mockDept[MockDataArr.mockDept.length - 1].id,
+        id: ++MockDataArr[pageName][MockDataArr[pageName].length - 1].id,
       });
       this.getPageListDataAction(pageName, { offset: 0, size: 10 });
     },
     async editPageDataAction(pageName: string, id: number, pageData: any) {
-      const index = MockDataArr.mockDept.findIndex((item: IUser) => item.id === id);
-      MockDataArr.mockDept[index] = {
-        ...MockDataArr.mockDept[index],
+      const index = MockDataArr[pageName].findIndex((item: IUser) => item.id === id);
+      MockDataArr[pageName][index] = {
+        ...MockDataArr[pageName][index],
         ...pageData,
         updateAt: Date.now(),
       };
