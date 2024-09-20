@@ -35,14 +35,14 @@ const useLoginStore = defineStore("login", {
 
       if (role !== 2) {
         const roleArr: string[] = ["department", "role"];
+        let arrAll: string[] = [];
         for (let index = 0; index < roleArr.length; index++) {
-          this.permissions = [
-            ...this.permissions,
-            ...this.power.map((item) => roleArr[index] + ":" + item),
-          ];
+          arrAll = [...arrAll, ...this.power.map((item) => roleArr[index] + ":" + item)];
         }
+        this.permissions = arrAll;
         localCache.setCache("permissions", this.permissions);
       }
+
       addRoutesWithMenu(this.userMenus);
       // 跳转到首页
       router.push("/main");
