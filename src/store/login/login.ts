@@ -31,6 +31,8 @@ const useLoginStore = defineStore("login", {
       const role = localCache.getCache("role");
       // 模拟角色登录后显示菜单数据
       this.userMenus = role == 2 ? menus.slice(2) : menus;
+      localCache.setCache("userMenus", this.userMenus);
+
       if (role !== 2) {
         const roleArr: string[] = ["department", "role"];
         for (let index = 0; index < roleArr.length; index++) {
@@ -39,9 +41,8 @@ const useLoginStore = defineStore("login", {
             ...this.power.map((item) => roleArr[index] + ":" + item),
           ];
         }
-        console.log(this.permissions);
+        localCache.setCache("permissions", this.permissions);
       }
-      localCache.setCache("userMenus", this.userMenus);
       addRoutesWithMenu(this.userMenus);
       // 跳转到首页
       router.push("/main");
@@ -49,6 +50,7 @@ const useLoginStore = defineStore("login", {
     loadLocalDataAction() {
       this.token = localCache.getCache(LOGIN_TOKEN);
       this.userMenus = localCache.getCache("userMenus");
+      this.permissions = localCache.getCache("permissions");
 
       if (this.token && this.userMenus) {
         addRoutesWithMenu(this.userMenus); // 获取所有的数据

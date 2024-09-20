@@ -62,6 +62,7 @@ function handleExitClick() {
   localCache.deleteCache(LOGIN_TOKEN)
   localCache.deleteCache("userMenus")
   localCache.deleteCache('menuActive')
+  localCache.deleteCache('permissions')
   localCache.deleteCache('role')
   router.push('/login')
 }

@@ -38,7 +38,6 @@ const modalConfigRef = computed(() => {
       item.options = entireDepartments as any
     }
   })
-  console.log("🚀 ~ modalConfigRef ~ modalConfig:", modalConfig.formItems[2].options)
   return modalConfig
 })
 
