@@ -3,14 +3,15 @@ const Random: Mock.MockjsRandom = Mock.Random;
 import mockUserTem from "./user";
 import mockDept from "./department";
 import mockRole from "./role";
-
+import menu from "./menu";
 // 生成 22 条数据
 const MockDataArr = Mock.mock({
   "getUserListData|22": [mockUserTem(Random)],
   "department|22": [mockDept(Random)],
   "role|23": [mockRole(Random)],
+  menu,
 });
-// console.log(MockDataArr.userList);
+console.log(MockDataArr.menu);
 // 输出结果
 // console.log(JSON.stringify(MockDataArr.userList, null, 2));
 
