@@ -5,6 +5,7 @@ export default [
     name: "系统总览",
     icon: "el-icon-monitor",
     url: "/main/analysis",
+    sort: 1,
     children: [
       {
         id: 2,
@@ -13,6 +14,7 @@ export default [
         url: "/main/analysis/overview",
         parentId: 1,
         children: null,
+        sort: 1,
       },
       {
         id: 3,
@@ -21,6 +23,7 @@ export default [
         url: "/main/analysis/dashboard",
         parentId: 1,
         children: null,
+        sort: 2,
       },
     ],
   },
@@ -30,6 +33,7 @@ export default [
     name: "系统管理",
     icon: "el-icon-setting",
     url: "/main/system",
+    sort: 2,
     children: [
       {
         id: 5,
@@ -38,6 +42,7 @@ export default [
         url: "/main/system/user",
         parentId: 4,
         children: null,
+        sort: 1,
       },
       {
         id: 6,
@@ -46,6 +51,7 @@ export default [
         url: "/main/system/department",
         parentId: 4,
         children: null,
+        sort: 2,
       },
       {
         id: 7,
@@ -54,6 +60,7 @@ export default [
         url: "/main/system/menu",
         parentId: 4,
         children: null,
+        sort: 3,
       },
       {
         id: 8,
@@ -62,6 +69,7 @@ export default [
         url: "/main/system/role",
         parentId: 4,
         children: null,
+        sort: 4,
       },
     ],
   },
@@ -71,6 +79,7 @@ export default [
     name: "商品中心",
     icon: "el-icon-handbag",
     url: "/main/product",
+    sort: 3,
     children: [
       {
         id: 10,
@@ -79,6 +88,7 @@ export default [
         url: "/main/product/category",
         parentId: 9,
         children: null,
+        sort: 1,
       },
       {
         id: 11,
@@ -87,6 +97,7 @@ export default [
         url: "/main/product/goods",
         parentId: 9,
         children: null,
+        sort: 2,
       },
     ],
   },
@@ -96,6 +107,7 @@ export default [
     name: "随便聊聊",
     icon: "el-icon-chatLineRound",
     url: "/main/story",
+    sort: 4,
     children: [
       {
         id: 13,
@@ -104,6 +116,7 @@ export default [
         url: "/main/story/list",
         parentId: 12,
         children: null,
+        sort: 1,
       },
       {
         id: 14,
@@ -112,6 +125,7 @@ export default [
         url: "/main/story/chat",
         parentId: 12,
         children: null,
+        sort: 2,
       },
     ],
   },
