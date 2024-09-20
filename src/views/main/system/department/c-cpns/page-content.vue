@@ -59,7 +59,7 @@ function fetchPageListData(queryInfo: any = {}) {
   const offset = (currentPage.value - 1) * size
 
   // 2.发生网络请求
-  systemStore.getPageListDataAction({ offset, size, ...queryInfo })
+  systemStore.getPageListDataAction('department', { offset, size, ...queryInfo })
 }
 fetchPageListData()
 
