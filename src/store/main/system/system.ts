@@ -53,7 +53,7 @@ const useSystemStore = defineStore("system", {
       const endIndex = startIndex + parseInt(queryInfo.size);
       // 1.请求用户列表数据
       const mockDeptResult = MockDataArr[pageName];
-      console.log("🚀 ~ getPageListDataAction ~ MockDataArr:", MockDataArr);
+
       this.pageList = mockDeptResult.slice(startIndex, endIndex);
       this.pageTotalCount = mockDeptResult.length;
     },

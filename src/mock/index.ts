@@ -11,7 +11,6 @@ const MockDataArr = Mock.mock({
   "role|23": [mockRole(Random)],
   menu,
 });
-console.log(MockDataArr.menu);
 // 输出结果
 // console.log(JSON.stringify(MockDataArr.userList, null, 2));
 
