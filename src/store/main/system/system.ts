@@ -1,6 +1,7 @@
 import MockDataArr from "@/mock";
 import { defineStore } from "pinia";
 import type { ISystemState, IUser } from "./type";
+import { ElMessage } from "element-plus";
 
 const useSystemStore = defineStore("system", {
   state: (): ISystemState => ({
@@ -48,6 +49,7 @@ const useSystemStore = defineStore("system", {
 
     // 部分的模拟数据对接
     async getPageListDataAction(pageName: string, queryInfo: any) {
+      // ElMessage.warning(`${pageName}搜索功能需要模拟完善`);
       // 搜索参数可以自行扩展
       const startIndex = parseInt(queryInfo.offset);
       const endIndex = startIndex + parseInt(queryInfo.size);
