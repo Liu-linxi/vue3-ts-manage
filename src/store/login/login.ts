@@ -34,7 +34,7 @@ const useLoginStore = defineStore("login", {
       localCache.setCache("userMenus", this.userMenus);
 
       if (role !== 2) {
-        const roleArr: string[] = ["department", "role"];
+        const roleArr: string[] = ["department", "role", "menu"];
         let arrAll: string[] = [];
         for (let index = 0; index < roleArr.length; index++) {
           arrAll = [...arrAll, ...this.power.map((item) => roleArr[index] + ":" + item)];
