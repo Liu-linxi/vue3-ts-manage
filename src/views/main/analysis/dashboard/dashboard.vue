@@ -1,6 +1,9 @@
 <template>
   <div class="dashboard">
-    <top-panel />
+    <div class="topPanel">
+      <top-panel />
+
+    </div>
     dashboard
   </div>
 </template>
@@ -10,5 +13,11 @@ import topPanel from './cpns/topPanel.vue'
 </script>
 
 <style scoped lang="less">
-.dashboard {}
+.dashboard {
+  .topPanel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+  }
+}
 </style>
