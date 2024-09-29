@@ -39,6 +39,7 @@ onMounted(() => {
 .panel {
   padding: 10px 20px;
   box-shadow: 0 0 12px 0px #ccc;
+  background-color: #ffff;
 
   .flex {
     display: flex;
