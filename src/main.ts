@@ -31,3 +31,5 @@ app.use(registerIcons);
 app.use(pinia);
 app.use(router);
 app.mount("#app");
+
+console.log("🚀 ~ 测试git提交消息规范");
