@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts" name="department">
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import PageSearch from '@/components/page-search/page-search.vue'
 import PageContent from '@/components/page-content/page-content.vue'
 import PageModal from '@/components/page-modal/page-modal.vue'

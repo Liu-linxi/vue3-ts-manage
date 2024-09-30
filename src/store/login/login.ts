@@ -26,6 +26,8 @@ const useLoginStore = defineStore("login", {
   }),
   actions: {
     async accountLoginAction(account: IAcount) {
+      console.log("🚀 ~ accountLoginAction ~ account:", account);
+
       // 1.保存在cache中
       localCache.setCache(LOGIN_TOKEN, "ceshi1baocun1token");
       // 2.如果有后续接口权限角色和菜单列表可以继续追加后面进行缓存后续取用数据在mock.js模拟部分

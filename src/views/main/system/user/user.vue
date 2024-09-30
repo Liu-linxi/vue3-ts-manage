@@ -19,6 +19,7 @@ import { ElMessage } from 'element-plus';
 // 1.重置功能
 const contentRef = ref<InstanceType<typeof PageContent>>()
 function handleQueryClick(searchInfo: any) {
+  console.log("🚀 ~ handleQueryClick ~ searchInfo:", searchInfo)
   return ElMessage.warning('搜索功能暂未对接开放,可以参考"store/main/system/system"中"getUserListDataAction"方法去完善')
 }
 function handleResetClick() {

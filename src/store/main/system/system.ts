@@ -1,7 +1,6 @@
 import MockDataArr from "@/mock";
 import { defineStore } from "pinia";
 import type { ISystemState, IUser } from "./type";
-import { ElMessage } from "element-plus";
 
 const useSystemStore = defineStore("system", {
   state: (): ISystemState => ({
